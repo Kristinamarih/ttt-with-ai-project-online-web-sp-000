@@ -11,30 +11,33 @@ def start
   
   case input
     when "0"
-    Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
-    puts "Would you like to play again?"
-    loop_game
+      Game.new(Players::Computer.new("X"), Players::Computer.new("O"), Board.new).play
+      puts "Would you like to play again?"
+      loop_game
+    
     when "2"
-    Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
-    puts "Would you like to play again?"
-    loop_game
+      Game.new(Players::Human.new("X"), Players::Human.new("O"), Board.new).play
+      puts "Would you like to play again?"
+      loop_game
+    
     when "1"
-    puts "Would you like to go first (y/n)?"
-    turn_input = gets.strip
-    if turn_input == "y"
+     puts "Would you like to go first (y/n)?"
+     turn_input = gets.strip
+       if turn_input == "y"
       Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play 
-    else 
+       else 
       Game.new(Players::Computer.new("X"), Players::Human.new("O"), Board.new).play 
-    end 
-    puts "Would you like to play again?"
-    loop_game
-  else 
+       end 
+      puts "Would you like to play again?"
+      loop_game
+    else 
     start 
   end
 end
 
 def loop_game
   puts "(y/n)"
+  puts "Please put y or n"
   answer = gets.strip
   case answer
     when "y"
